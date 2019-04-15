@@ -40,3 +40,9 @@ declare void @llvm.lifetime.start.p0i8(i64, i8* nocapture) #1
 declare dso_local void @__marking_faultinject_ptr(i32*) #2
 
 declare dso_local i32 @printf(i8*, ...) #2
+
+; <label>:18:                                     ; preds = %14
+   %19 = load i32, i32* %6, align 4, !tbaa !2
+   %20 = add nsw i32 %19, 1
+   store i32 %20, i32* %6, align 4, !tbaa !2
+   br label %10
