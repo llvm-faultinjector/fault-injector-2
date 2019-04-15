@@ -1,20 +1,8 @@
-
-  store i32 0, i32* %7, align 4, !tbaa !2
-  store i32 0, i32* %6, align 4, !tbaa !2
-  br label %10
-
-; <label>:10:                                     ; preds = %18, %2
-  %11 = load i32, i32* %6, align 4, !tbaa !2
-  %12 = load i32, i32* %4, align 4, !tbaa !2
-  %13 = icmp slt i32 %11, %12
-  br i1 %13, label %14, label %22
-
-; <label>:14:                                     ; preds = %10
-  %15 = load i32, i32* %6, align 4, !tbaa !2
-  %16 = load i32, i32* %7, align 4, !tbaa !2
-  %17 = add nsw i32 %16, %15
-  store i32 %17, i32* %7, align 4, !tbaa !2
-  br label %18
+; <label>:18:                                     ; preds = %14
+   %19 = load i32, i32* %6, align 4, !tbaa !2
+   %20 = add nsw i32 %19, 1
+   store i32 %20, i32* %6, align 4, !tbaa !2
+   br label %10
 
 ; <label>:18:                                     ; preds = %14
   %19 = load i32, i32* %6, align 4, !tbaa !2
@@ -40,9 +28,3 @@ declare void @llvm.lifetime.start.p0i8(i64, i8* nocapture) #1
 declare dso_local void @__marking_faultinject_ptr(i32*) #2
 
 declare dso_local i32 @printf(i8*, ...) #2
-
-; <label>:18:                                     ; preds = %14
-   %19 = load i32, i32* %6, align 4, !tbaa !2
-   %20 = add nsw i32 %19, 1
-   store i32 %20, i32* %6, align 4, !tbaa !2
-   br label %10
