@@ -1,3 +1,4 @@
+
 ; <label>:18:                                     ; preds = %14
    %19 = load i32, i32* %6, align 4, !tbaa !2
    %20 = add nsw i32 %19, 1
