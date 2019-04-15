@@ -29,3 +29,14 @@ declare void @llvm.lifetime.start.p0i8(i64, i8* nocapture) #1
 declare dso_local void @__marking_faultinject_ptr(i32*) #2
 
 declare dso_local i32 @printf(i8*, ...) #2
+
+  call void @llvm.lifetime.start.p0i8(i64 4, i8* %8) #3
+  
+   store i32 0, i32* %6, align 4, !tbaa !2
+   %9 = bitcast i32* %7 to i8*
+   call void @llvm.lifetime.start.p0i8(i64 4, i8* %9) #3
+   store i32 0, i32* %7, align 4, !tbaa !2
+   call void @__marking_faultinject_ptr(i32* %6)
+   store i32 0, i32* %6, align 4, !tbaa !2
+   br label %10
+
